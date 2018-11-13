@@ -7,36 +7,56 @@
 
 package org.usfirst.frc.team2374.robot;
 
+import edu.wpi.first.wpilibj.Joystick;
+
 /**
  * This class is the glue that binds the controls on the physical operator
  * interface to the commands and command groups that allow control of the robot.
  */
 public class OI {
-	//// CREATING BUTTONS
-	// One type of button is a joystick button which is any button on a
-	//// joystick.
-	// You create one by telling it which joystick it's on and which button
-	// number it is.
-	// Joystick stick = new Joystick(port);
-	// Button button = new JoystickButton(stick, buttonNumber);
+	
+	private Joystick driver;
+	
+	public OI() {
+		driver = new Joystick(RobotMap.driverJoy);
+	}
+	
+	public double getDriverLeftY() { return driver.getRawAxis(RobotMap.rsRightAxisY); }
+	
+	public double getDriverRightY() { return driver.getRawAxis(RobotMap.rsLeftAxisY); }
+	
+	public double getLeftTrigger() { return driver.getRawAxis(RobotMap.rsLeftTrigger); }
 
-	// There are a few additional built in buttons you can use. Additionally,
-	// by subclassing Button you can create custom triggers and bind those to
-	// commands the same as any other Button.
+	public double getRightTrigger() { return driver.getRawAxis(RobotMap.rsRightTrigger); }
 
-	//// TRIGGERING COMMANDS WITH BUTTONS
-	// Once you have a button, it's trivial to bind it to a button in one of
-	// three ways:
+	public boolean getButtonA() { return driver.getRawButton(RobotMap.rsButtonA); }
+	
+	public boolean getButtonB() { return driver.getRawButton(RobotMap.rsButtonB); }
 
-	// Start the command when the button is pressed and let it run the command
-	// until it is finished as determined by it's isFinished method.
-	// button.whenPressed(new ExampleCommand());
+	public boolean getButtonX() { return driver.getRawButton(RobotMap.rsButtonX); }
 
-	// Run the command while the button is being held down and interrupt it once
-	// the button is released.
-	// button.whileHeld(new ExampleCommand());
+	public boolean getButtonY() { return driver.getRawButton(RobotMap.rsButtonY); }
 
-	// Start the command when the button is released and let it run the command
-	// until it is finished as determined by it's isFinished method.
-	// button.whenReleased(new ExampleCommand());
+	public boolean getLeftBumper() { return driver.getRawButton(RobotMap.rsLeftBumper); }
+
+	public boolean getRightBumper() { return driver.getRawButton(RobotMap.rsRightBumper); }
+	
+	public boolean getButtonBack() { return driver.getRawButton(RobotMap.rsButtonBack); }
+
+	public boolean getButtonBackPressed() { return driver.getRawButtonPressed(RobotMap.rsButtonBack); }
+	
+	public boolean getButtonStart() { return driver.getRawButton(RobotMap.rsButtonStart); }
+
+	public boolean getButtonStartPressed() { return driver.getRawButtonPressed(RobotMap.rsButtonStart); }
+	
+	public boolean getButtonM1() { return driver.getRawButton(RobotMap.rsButtonM1); }
+	
+	public boolean getButtonM1Pressed() { return driver.getRawButtonPressed(RobotMap.rsButtonM1); }
+	
+	public boolean getButtonM2() { return driver.getRawButton(RobotMap.rsButtonM2); }
+
+	public boolean getButtonM2Pressed() { return driver.getRawButtonPressed(RobotMap.rsButtonM2); }
+	
+	public double getPOV() { return driver.getPOV(0); }
+	
 }
